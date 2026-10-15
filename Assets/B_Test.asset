@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0d567ba73665047bcbbb39770dfb3e, type: 3}
+  m_Name: B_Test
+  m_EditorClassIdentifier: Assembly-CSharp::BiomeDefinition
+  biomeName: Test
+  minHeight: 0
+  maxHeight: 1
+  minSlope: 0
+  maxSlope: 90
+  minMoisture: 0
+  maxMoisture: 1
+  layers:
+  - layerName: Arbres
+    entries:
+    - prefab: {fileID: 7035193621582100787, guid: 2a3a5cfe03b8d4745bd77dae5a5f5774, type: 3}
+      weight: 3
+    - prefab: {fileID: 2873784948236536173, guid: 972c378e51b4b1b458167da621a28fd0, type: 3}
+      weight: 5
+    - prefab: {fileID: 3351107634038123682, guid: e061c3c2929a4ff4ea6e1fcc179c3f99, type: 3}
+      weight: 10
+    cellSize: 7
+    scaleRange: {x: 0.8, y: 1.3}
+    exclusionRadius: 2.5
+    minHeight: 0.08
+    maxHeight: 0.7
+    minSlope: 0
+    maxSlope: 30
+    noiseFrequency: 0.01
+    minDensity: 0.5
+    alignToSlope: 0
+  - layerName: Rochers
+    entries:
+    - prefab: {fileID: 4843524868254211946, guid: 0b7c39db641be5044ab85ba9f56a629a, type: 3}
+      weight: 2
+    - prefab: {fileID: 7105557981267009923, guid: 8b2f7789077f69f458e3919626d6ea22, type: 3}
+      weight: 3
+    - prefab: {fileID: 4356480299396696560, guid: c65625e040ac42e46ba4222b69c41558, type: 3}
+      weight: 5
+    - prefab: {fileID: 5389395240314065769, guid: 967b6a4dedfb5424f8c3a056595dab0e, type: 3}
+      weight: 8
+    cellSize: 12
+    scaleRange: {x: 0.6, y: 3}
+    exclusionRadius: 2
+    minHeight: 0
+    maxHeight: 1
+    minSlope: 25
+    maxSlope: 70
+    noiseFrequency: 0.01
+    minDensity: 0.35
+    alignToSlope: 0.7

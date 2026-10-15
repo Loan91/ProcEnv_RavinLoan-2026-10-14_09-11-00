@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0d567ba73665047bcbbb39770dfb3e, type: 3}
+  m_Name: B_Foret
+  m_EditorClassIdentifier: Assembly-CSharp::BiomeDefinition
+  biomeName: "For\xEAt"
+  minHeight: 0.08
+  maxHeight: 0.65
+  minSlope: 0
+  maxSlope: 35
+  minMoisture: 0.5
+  maxMoisture: 1
+  layers:
+  - layerName: Arbres
+    entries:
+    - prefab: {fileID: 3351107634038123682, guid: e061c3c2929a4ff4ea6e1fcc179c3f99, type: 3}
+      weight: 5
+    - prefab: {fileID: 7035193621582100787, guid: 2a3a5cfe03b8d4745bd77dae5a5f5774, type: 3}
+      weight: 5
+    cellSize: 6
+    scaleRange: {x: 0, y: 0}
+    exclusionRadius: 2.5
+    minHeight: 0
+    maxHeight: 1
+    minSlope: 0
+    maxSlope: 90
+    noiseFrequency: 0.05
+    minDensity: 0
+    alignToSlope: 0
+  - layerName: Buisson
+    entries:
+    - prefab: {fileID: 4119340359363394084, guid: 431e05c5e2b18ba4fa6b3b0a6f687786, type: 3}
+      weight: 1
+    - prefab: {fileID: 2121115777601418451, guid: e334e6614ad50f749b0a37528784c614, type: 3}
+      weight: 1
+    - prefab: {fileID: 1253365200111527898, guid: 8109e9e16ba4cc04b8e0928aea897927, type: 3}
+      weight: 1
+    cellSize: 3
+    scaleRange: {x: 0, y: 0}
+    exclusionRadius: 0.8
+    minHeight: 0
+    maxHeight: 1
+    minSlope: 0
+    maxSlope: 90
+    noiseFrequency: 0.05
+    minDensity: 0
+    alignToSlope: 0

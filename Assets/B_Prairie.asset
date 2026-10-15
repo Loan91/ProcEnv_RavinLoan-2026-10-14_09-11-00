@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0d567ba73665047bcbbb39770dfb3e, type: 3}
+  m_Name: B_Prairie
+  m_EditorClassIdentifier: Assembly-CSharp::BiomeDefinition
+  biomeName: Prairie
+  minHeight: 0
+  maxHeight: 0.65
+  minSlope: 0
+  maxSlope: 35
+  minMoisture: 0.5
+  maxMoisture: 1
+  layers:
+  - layerName: Arbres
+    entries:
+    - prefab: {fileID: 2873784948236536173, guid: 972c378e51b4b1b458167da621a28fd0, type: 3}
+      weight: 5
+    - prefab: {fileID: 7035193621582100787, guid: 2a3a5cfe03b8d4745bd77dae5a5f5774, type: 3}
+      weight: 5
+    cellSize: 25
+    scaleRange: {x: 0, y: 0}
+    exclusionRadius: 0
+    minHeight: 0
+    maxHeight: 1
+    minSlope: 0
+    maxSlope: 90
+    noiseFrequency: 0.05
+    minDensity: 0.6
+    alignToSlope: 0
+  - layerName: Fleurs
+    entries:
+    - prefab: {fileID: 8161574365554748248, guid: 24164f652fb084949ba21a42c0f28b51, type: 3}
+      weight: 2
+    - prefab: {fileID: 8046532413778691362, guid: dbf9da81d60e3e54197c89ca9347e23b, type: 3}
+      weight: 2
+    - prefab: {fileID: 4046191999865102442, guid: b92201891d7079040b76063c32ac7198, type: 3}
+      weight: 2
+    - prefab: {fileID: 4557805872060955914, guid: 8b7f475677438404d8874876edb5b4a7, type: 3}
+      weight: 2
+    cellSize: 2
+    scaleRange: {x: 0, y: 0}
+    exclusionRadius: 0
+    minHeight: 0
+    maxHeight: 1
+    minSlope: 0
+    maxSlope: 90
+    noiseFrequency: 0.05
+    minDensity: 0
+    alignToSlope: 0
+  - layerName: Touffes
+    entries:
+    - prefab: {fileID: 3411814942312703119, guid: bfa01bd00d38eb04bb9a20d8eb3f3881, type: 3}
+      weight: 2
+    - prefab: {fileID: 8735271479815803169, guid: 321b64dcce182f243b072b44361aff77, type: 3}
+      weight: 2
+    cellSize: 2
+    scaleRange: {x: 0, y: 0}
+    exclusionRadius: 0
+    minHeight: 0
+    maxHeight: 1
+    minSlope: 0
+    maxSlope: 90
+    noiseFrequency: 0.05
+    minDensity: 0
+    alignToSlope: 0
