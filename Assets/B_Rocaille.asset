@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: B_Rocaille
   m_EditorClassIdentifier: Assembly-CSharp::BiomeDefinition
   biomeName: Rocaille
+  description: Zones en altitude (hauteur > 0,65). Rochers et arbustes secs.
   minHeight: 0.65
   maxHeight: 1
   minSlope: 0

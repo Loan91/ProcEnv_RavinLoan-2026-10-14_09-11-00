@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: B_Prairie
   m_EditorClassIdentifier: Assembly-CSharp::BiomeDefinition
   biomeName: Prairie
+  description: "Biome par d\xE9faut, partout ailleurs. Quelques arbres isol\xE9s,
+    herbe et fleurs."
   minHeight: 0
   maxHeight: 0.65
   minSlope: 0

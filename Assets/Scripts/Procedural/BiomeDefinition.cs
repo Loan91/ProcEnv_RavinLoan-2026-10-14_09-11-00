@@ -2,9 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Biome", menuName = "ProcEnv/Biome")]
+
 public class BiomeDefinition : ScriptableObject
 {
     public string biomeName = "Forêt";
+    [TextArea] public string description;
 
     [Header("Où ce biome existe")]
     [Range(0f, 1f)] public float minHeight = 0f;

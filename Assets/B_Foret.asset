@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: B_Foret
   m_EditorClassIdentifier: Assembly-CSharp::BiomeDefinition
   biomeName: "For\xEAt"
+  description: "Zones humides et douces (pente max 35, humidit\xE9 min 0,5). Arbres
+    et buissons."
   minHeight: 0.08
   maxHeight: 0.65
   minSlope: 0
