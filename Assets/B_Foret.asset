@@ -27,7 +27,7 @@ MonoBehaviour:
     - prefab: {fileID: 7035193621582100787, guid: 2a3a5cfe03b8d4745bd77dae5a5f5774, type: 3}
       weight: 5
     cellSize: 6
-    scaleRange: {x: 0, y: 0}
+    scaleRange: {x: 0.8, y: 1.2}
     exclusionRadius: 2.5
     minHeight: 0
     maxHeight: 1
@@ -45,7 +45,7 @@ MonoBehaviour:
     - prefab: {fileID: 1253365200111527898, guid: 8109e9e16ba4cc04b8e0928aea897927, type: 3}
       weight: 1
     cellSize: 3
-    scaleRange: {x: 0, y: 0}
+    scaleRange: {x: 0.8, y: 1.2}
     exclusionRadius: 0.8
     minHeight: 0
     maxHeight: 1

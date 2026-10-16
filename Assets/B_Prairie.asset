@@ -27,7 +27,7 @@ MonoBehaviour:
     - prefab: {fileID: 7035193621582100787, guid: 2a3a5cfe03b8d4745bd77dae5a5f5774, type: 3}
       weight: 5
     cellSize: 25
-    scaleRange: {x: 0, y: 0}
+    scaleRange: {x: 0.8, y: 1.2}
     exclusionRadius: 0
     minHeight: 0
     maxHeight: 1
@@ -47,7 +47,7 @@ MonoBehaviour:
     - prefab: {fileID: 4557805872060955914, guid: 8b7f475677438404d8874876edb5b4a7, type: 3}
       weight: 2
     cellSize: 2
-    scaleRange: {x: 0, y: 0}
+    scaleRange: {x: 0.8, y: 1.2}
     exclusionRadius: 0
     minHeight: 0
     maxHeight: 1
@@ -63,7 +63,7 @@ MonoBehaviour:
     - prefab: {fileID: 8735271479815803169, guid: 321b64dcce182f243b072b44361aff77, type: 3}
       weight: 2
     cellSize: 2
-    scaleRange: {x: 0, y: 0}
+    scaleRange: {x: 0.8, y: 1.2}
     exclusionRadius: 0
     minHeight: 0
     maxHeight: 1
