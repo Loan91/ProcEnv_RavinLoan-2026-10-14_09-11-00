@@ -73,7 +73,10 @@ public class DungeonLayout
     {
         // chaînage : chaque salle est reliée à la précédente => connectivité garantie
         for (int i = 1; i < rooms.Count; i++)
+        {
             Corridor(rooms[i - 1], rooms[i]);
+        }
+            
 
         // boucles supplémentaires : des alternatives, pas de la connectivité
         for (int i = 0; i < rooms.Count; i++)
@@ -88,28 +91,66 @@ public class DungeonLayout
     void Corridor(RoomRect a, RoomRect b)
     {
         int x1 = a.CenterX, y1 = a.CenterY, x2 = b.CenterX, y2 = b.CenterY;
-        if (rng.Next(0, 2) == 0)
+        bool horizontalFirst = rng.Next(0, 2) == 0;
+
+        List<int> pathA = BuildPath(x1, y1, x2, y2, horizontalFirst);
+        List<int> pathB = BuildPath(x1, y1, x2, y2, !horizontalFirst);
+
+        List<int> chosen = pathA;
+        if (!IsClean(pathA) && IsClean(pathB)) chosen = pathB;   // sinon on garde A (rare)
+
+        foreach (int id in chosen) Carve(id / height, id % height);
+    }
+
+    List<int> BuildPath(int x1, int y1, int x2, int y2, bool horizontalFirst)
+    {
+        var path = new List<int>();
+        if (horizontalFirst)
         {
-            CarveH(x1, x2, y1);
-            CarveV(y1, y2, x2);
+            AddLine(path, x1, y1, x2, y1);
+            AddLine(path, x2, y1, x2, y2);
         }
         else
         {
-            CarveV(y1, y2, x1);
-            CarveH(x1, x2, y2);
+            AddLine(path, x1, y1, x1, y2);
+            AddLine(path, x1, y2, x2, y2);
+        }
+        return path;
+    }
+
+    void AddLine(List<int> path, int xa, int ya, int xb, int yb)
+    {
+        int dx = xb > xa ? 1 : (xb < xa ? -1 : 0);
+        int dy = yb > ya ? 1 : (yb < ya ? -1 : 0);
+        int x = xa, y = ya;
+        path.Add(x * height + y);
+        while (x != xb || y != yb)
+        {
+            x += dx;
+            y += dy;
+            path.Add(x * height + y);
         }
     }
 
-    void CarveH(int xa, int xb, int y)
+    bool IsClean(List<int> path)
     {
-        int lo = xa < xb ? xa : xb, hi = xa < xb ? xb : xa;
-        for (int x = lo; x <= hi; x++) Carve(x, y);
-    }
+        var inPath = new HashSet<int>(path);
+        int[] dx = { 1, -1, 0, 0 }, dy = { 0, 0, 1, -1 };
 
-    void CarveV(int ya, int yb, int x)
-    {
-        int lo = ya < yb ? ya : yb, hi = ya < yb ? yb : ya;
-        for (int y = lo; y <= hi; y++) Carve(x, y);
+        foreach (int id in path)
+        {
+            int x = id / height, y = id % height;
+            if (cells[x, y] != CellType.Empty) continue;   // déjà ouvert : rien à creuser ici
+
+            for (int d = 0; d < 4; d++)
+            {
+                int nx = x + dx[d], ny = y + dy[d];
+                if (!InBounds(nx, ny)) continue;
+                if (cells[nx, ny] != CellType.Empty && !inPath.Contains(nx * height + ny))
+                    return false;   // il colle un couloir ou une salle voisine
+            }
+        }
+        return true;
     }
 
     void Carve(int x, int y)
