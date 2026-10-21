@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27bcbc813b2312544b4fe368e892adda, type: 3}
+  m_Name: T_Stockage
+  m_EditorClassIdentifier: Assembly-CSharp::RoomTheme
+  themeName: Stockage
+  wallProps:
+  - prefab: {fileID: 4940281293748191998, guid: 42dd7be44452dce47aa25120f15bdc72, type: 3}
+    weight: 3
+  - prefab: {fileID: 119378, guid: 431c7b6a6c1d83844af83c2827df1bdf, type: 3}
+    weight: 2
+  centerProps:
+  - prefab: {fileID: 119560, guid: 6c88f13e6ee82414595ce8cff7d2093e, type: 3}
+    weight: 1
+  wallDensity: 0.6
+  centerDensity: 0.1
+  lightColor: {r: 1, g: 1, b: 0.8352941, a: 1}
+  lightIntensity: 1.2
+  lightRange: 10
