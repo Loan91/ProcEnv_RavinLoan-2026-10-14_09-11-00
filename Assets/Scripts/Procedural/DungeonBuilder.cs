@@ -15,7 +15,7 @@ public class DungeonBuilder : MonoBehaviour
     [Range(0f, 1f)] public float loopChance = 0.2f;
     public int maxTries = 200;
 
-    [Header("Kit modulaire (laisser vide = cubes de secours)")]
+    [Header("Kit modulaire")]
     public float tileSize = 4f;
     public float wallHeight = 3f;
     public GameObject floorPrefab;
@@ -220,23 +220,22 @@ public class DungeonBuilder : MonoBehaviour
 
                 if (wallDir >= 0)
                 {
-                    if (PointOps.Hash01(cellSeed, 10) > theme.wallDensity) continue;
-                    var prefab = theme.Pick(theme.wallProps, PointOps.Hash01(cellSeed, 11));
-                    if (prefab == null) continue;
-                    // posé contre la paroi, regardant vers l'intérieur de la salle
+                    var entry = theme.Pick(theme.wallProps, PointOps.Hash01(cellSeed, 11));
+                    if (entry == null || entry.prefab == null) continue;
                     Vector3 toWall = new Vector3(DX[wallDir], 0f, DZ[wallDir]);
-                    var go = Instantiate(prefab, holder);
+                    var go = Instantiate(entry.prefab, holder);
                     go.transform.localPosition = c + toWall * (tileSize * 0.5f - wallPropInset);
-                    go.transform.localRotation = Quaternion.Euler(0f, YAW[(wallDir + 2) % 4], 0f);
+                    go.transform.localRotation = Quaternion.Euler(0f, YAW[(wallDir + 2) % 4] + entry.yawOffset, 0f);
+                    SitOnFloor(go);
                 }
                 else
                 {
-                    if (PointOps.Hash01(cellSeed, 20) > theme.centerDensity) continue;
-                    var prefab = theme.Pick(theme.centerProps, PointOps.Hash01(cellSeed, 21));
-                    if (prefab == null) continue;
-                    var go = Instantiate(prefab, holder);
+                    var entry = theme.Pick(theme.centerProps, PointOps.Hash01(cellSeed, 21));
+                    if (entry == null || entry.prefab == null) continue;
+                    var go = Instantiate(entry.prefab, holder);
                     go.transform.localPosition = c;
                     go.transform.localRotation = Quaternion.Euler(0f, PointOps.Range(cellSeed, 22, 0f, 360f), 0f);
+                    SitOnFloor(go);
                 }
             }
 
@@ -251,5 +250,17 @@ public class DungeonBuilder : MonoBehaviour
             l.intensity = theme.lightIntensity;
             l.range = theme.lightRange;
         }
+    }
+
+    void SitOnFloor(GameObject go)
+    {
+        var renderers = go.GetComponentsInChildren<Renderer>();
+        if (renderers.Length == 0) return;
+
+        Bounds b = renderers[0].bounds;
+        for (int i = 1; i < renderers.Length; i++) b.Encapsulate(renderers[i].bounds);
+
+        float floorY = transform.position.y;
+        go.transform.position += Vector3.up * (floorY - b.min.y);
     }
 }

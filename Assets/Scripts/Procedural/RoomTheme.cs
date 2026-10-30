@@ -9,6 +9,7 @@ public class RoomTheme : ScriptableObject
     {
         public GameObject prefab;
         [Min(0f)] public float weight = 1f;
+        public float yawOffset = 0f;
     }
 
     public string themeName = "Stockage";
@@ -24,11 +25,11 @@ public class RoomTheme : ScriptableObject
     public float lightIntensity = 1.2f;
     public float lightRange = 10f;
 
-    public GameObject Pick(List<PropEntry> list, float r01)
+    public PropEntry Pick(List<PropEntry> list, float r01)
     {
         if (list == null || list.Count == 0) return null;
         var weights = new List<float>();
         foreach (var e in list) weights.Add(e.weight);
-        return list[PointOps.PickWeighted(weights, r01)].prefab;
+        return list[PointOps.PickWeighted(weights, r01)];
     }
 }

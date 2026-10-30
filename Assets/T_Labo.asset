@@ -16,13 +16,17 @@ MonoBehaviour:
   wallProps:
   - prefab: {fileID: 7851711041489694631, guid: 7769b6e68c1a90a458fec4955db6b2fd, type: 3}
     weight: 5
+    yawOffset: -90
   - prefab: {fileID: 4327680794412319598, guid: 7699f5af06713974ba61777a8a830f6e, type: 3}
     weight: 5
+    yawOffset: -90
   centerProps:
   - prefab: {fileID: 5962398747546707978, guid: 3a3c0bbe58beeff4a8d63acd5a770137, type: 3}
     weight: 3
+    yawOffset: 0
   - prefab: {fileID: 1963118065990805654, guid: 452921da7fe17904da8c1d34c235dee4, type: 3}
     weight: 5
+    yawOffset: 0
   wallDensity: 0.4
   centerDensity: 0.18
   lightColor: {r: 0.8156863, g: 1, b: 1, a: 1}
